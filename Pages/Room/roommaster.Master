@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="roommaster.master.cs" Inherits="HotelManagement.Pages.Room.roommaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+         .btn-outline-primary:hover {
+            color: black;
+            background-color: #747393;
+            border-color: #747393
+        }
+
+        .btn-outline-primary {
+            color: black;
+            border-color: #747393
+        }
+
+        .main {
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        .footer {
+            margin-top: 200px;
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+
+        .top {
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .roombooking {
+            max-width: 100%;
+            margin-top: 0px;
+            margin-left: 260px;
+            margin-right: 70px;
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        .first {
+            padding: 10px;
+        }
+        .navbar{
+            background-color:#D1B0C5 !important;
+        }
+
+        .msg {
+            margin-bottom: 100px;
+        }
+
+        .roombtn {
+            padding: 3px 10px;
+            background: #89CFF0;
+            border-radius: 12px;
+        }
+
+        .card {
+            width: 180px;
+        }
+
+        .gridview {
+            margin-left: 170px;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%--  header--%>
+        <div class="main">
+            <div class="conatiner-fluid top">
+                <nav class="navbar navbar-expand-lg navbar-light ">
+                    <div class="container-fluid">
+                        <a class="navbar-brand text-primary" href="#">HotelManagement</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="<%=this.ResolveUrl("~/Pages/Room/getdata.aspx")%>">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="<%=this.ResolveUrl("~/Pages/Room/showdeatails.aspx")%>">Room history</a>
+                                </li>
+                            </ul>
+                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                            &nbsp;&nbsp;
+                     <asp:Button ID="Button1" class="btn btn-outline-primary" UseSubmitBehavior="false" runat="server" Text="LOG OUT" OnClick="Button1_Click" />
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

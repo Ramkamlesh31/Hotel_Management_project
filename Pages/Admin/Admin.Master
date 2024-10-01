@@ -1,0 +1,174 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="HotelManagement.Pages.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .main {
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        .navbar {
+            background-color: #D1B0C5 !important;
+        }
+
+        .top {
+            background: #0096FF;
+        }
+
+        .data {
+            margin-left: 100px;
+        }
+
+        .drp {
+            border: 1px solid aqua;
+            background-color: blue;
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 2px 7px;
+            background-color: green;
+        }
+
+        .roombooking {
+            width: 500px;
+            margin-top: 0px;
+            margin-left: 180px;
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        .roombooking1 {
+            width: 800px;
+            margin-top: 0px;
+            margin-left: 260px;
+            margin-right: 70px;
+            border: 1px solid black;
+            height: 300px;
+            padding-left: 10px;
+        }
+
+        .btn-outline-primary:hover {
+            color: black;
+            background-color: #747393;
+            border-color: #747393
+        }
+
+        .btn-outline-primary {
+            color: black;
+            border-color: #747393
+        }
+
+        body {
+            background-image: url("https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2022/04/12/1329/MUMGH-P0765-Inner-Courtyard-Hotel-Exterior-Evening.jpg/MUMGH-P0765-Inner-Courtyard-Hotel-Exterior-Evening.16x9.jpg")
+        }
+
+        .first {
+            padding: 10px;
+        }
+
+        .roombtn {
+            padding: 3px 10px;
+            background: #89CFF0;
+            border-radius: 12px;
+        }
+
+        .msg {
+            font-size: 20px;
+            margin-top: 100px;
+            margin-left: 200px;
+            padding: 200px;
+        }
+
+        #Label1 {
+            font-size: 20px;
+        }
+
+        .roombooking3 {
+            border: 1px solid black;
+            margin-left: 120px;
+            padding: 20px;
+            width: 650px;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%-- header--%>
+        <div class="main">
+            <div class="conatiner-fluid top">
+                <nav class="navbar navbar-expand-lg navbar-light ">
+                    <div class="container-fluid">
+                        <a class="navbar-brand text-primary" href="#">HotelManagement</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="<%=this.ResolveUrl("~/Pages/Admin/Dashboard.aspx")%>">DashBoard</a>
+                                </li>
+                                <li class="nav-item dropdown">
+
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">Master
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="<%=this.ResolveUrl("~/Pages/Admin/UserType.aspx")%>">User Type</a></li>
+                                        <li><a class="dropdown-item" href="<%=this.ResolveUrl("~/Pages/Admin/AddItems.aspx")%>">Documnet Type</a></li>
+                                        <li><a class="dropdown-item" href="<%=this.ResolveUrl("~/Pages/Admin/RoomType.aspx")%>">Room Type</a></li>
+                                        <li><a class="dropdown-item" href="<%=this.ResolveUrl("~/Pages/Admin/AddRoom.aspx")%>">Room</a></li>
+                                        <li><a class="dropdown-item" href="<%=this.ResolveUrl("~/Pages/Admin/userdetails.aspx")%>">User Master</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Transaction
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="<%=this.ResolveUrl("~/Pages/Admin/Roomdata.aspx")%>">Room Booking</a></li>
+                                        <li><a class="dropdown-item" href="<%=this.ResolveUrl("~/Pages/Admin/AdminRequest.aspx")%>">Admin Request</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Report
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="<%=this.ResolveUrl("~/Pages/Admin/UserRoomData.aspx")%>">Room history</a></li>
+                                        <li><a class="dropdown-item" href="<%=this.ResolveUrl("~/Pages/Admin/TotalUser.aspx")%>">User Details</a></li>
+                                        <li><a class="dropdown-item" href="<%=this.ResolveUrl("~/Pages/Admin/ApproveToAdminDeatils.aspx")%>">Approve Admin Details</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                            &nbsp;&nbsp;
+                            <asp:Button ID="Button1" class="btn btn-outline-primary" runat="server" Text="LOG OUT" OnClick="Button1_Click" />
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
